@@ -2,31 +2,39 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora NFSe Avulsa</title>
-    
-  
-  <div class="container">
-        <h1>Calculadora NFSe-A</h1>
-        <h3>(Pessoa Física)</h3>
-        <form id="calculatorForm">
-            <div>
-                <label for="ValorNF">Valor Nota</label>
-                <input type="text" id="ValorNF" name="ValorNF" required><br><br>
-                <button type="button" onclick="calcularTaxa()">Calcular</button>
-            </div>
-        </form>
-        <div id="resultado"></div>
-        <button id="imprimirBtn" onclick="imprimirRelatorio()">Imprimir Relatório</button>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves.</p>
-    </footer>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora NFSe Avulsa</title>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Caculadora_PF.css">
 </head>
+<body>
+  
+  <header>
+    <h1>Calculadora NFSe-A (Pessoa Física)</h1>
+  </header>
+
+  <main>
+    <div class="content"></div>
+    <h2>Nota Fiscal de Serviços Eletrônica Avulsa - NFSe - A é o documento fiscal de existência apenas digital que substituirá as tradicionais notas fiscais de serviços impressas que costumeiramente os prestadores de serviços não estabelecidos no município ou profissionais autônomos emitem diretamente na prefeitura.</h2>
+
+  <div class="container">
+       <form id="calculatorForm">
+      <div>
+        <label for="ValorNF">Valor Nota</label>
+        <input type="text" id="ValorNF" name="ValorNF" required><br><br>
+        <button type="button" onclick="calcularTaxa()">Calcular</button>
+      </div>
+    </form>
+    <div id="resultado"></div>
+    <button id="imprimirBtn" onclick="imprimirRelatorio()">Imprimir Relatório</button>
+  </div>
+</main>
+
+  <footer>
+    <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves.</p>
+  </footer>
+
   <script src="Caculadora_PF.js"></script>
 </body>
 </html>
