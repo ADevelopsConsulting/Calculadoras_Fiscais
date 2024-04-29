@@ -1,22 +1,50 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background:rgb(212, 222, 226) 50%;
+    padding: 20px 250px;
+}
+
+
+header {
+    width: 100%; /* Ocupa toda a largura */
 }
 
 h1 {
-    color: #120346;
+    color: #210780;
     text-align: center;
+    text-shadow: 1px 1px 1px rgba(51, 49, 49, 0.3);
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content {
+    margin: 60px; /* Adiciona margem interna */
+    text-align: center;
+}
+
+h2 {
+    color: #210780;
+    text-align: justify;
+    padding: 10px 15px; /* Ajustando o padding */
+    margin-left: auto;
+    text-shadow: 1px 1px 1px rgba(51, 49, 49, 0.4);
 }
 
 button {
     background-color: #1E90FF;
     color: #ffffff;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 10px 100px;
     border: none;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -30,10 +58,9 @@ button:hover {
 
 #resultado {
     margin-top: 20px;
-    text-align: center; 
+    text-align: center;
 }
 
 footer {
-    margin-top: auto; 
-    text-align: center; 
+    text-align: center;
 }
