@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora NFS-e</title>
+  <link rel="stylesheet" href="Calculadora_PJ.css">
+</head>
+<body>
+  <div style="text-align: left; background-color: rgba(235, 231, 231, 0.1);padding: 30px;border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+    <h1 style="color: #120346; text-align: center; ">Calculadora NFS-e</h1>
+    <div>
+    <form id="taxCalculatorForm">
+        <label for="valorNota">Valor da Nota:</label>
+        <input type="text" id="valorNota"> <br>
+
+    
+
+        <label>IRRF:</label>
+        <input type="radio" name="irrfOption" value="Sim" checked onchange="toggleElements('irrf')">Sim
+        <input type="radio" name="irrfOption" value="Não" onchange="toggleElements('irrf')">Não<br>
+
+        <div id="irrfElements">
+            <label for="irrfAliquota">Alíquota IRRF (%):</label>
+            <select id="irrfAliquota">
+                <option value="1.0">1.0%</option>
+                <option value="1.5">1.5%</option>
+            </select><br>
+        </div>
+
+        <label>ISS:</label>
+        <input type="radio" name="issOption" value="Sim" checked onchange="toggleElements('iss')">Sim
+        <input type="radio" name="issOption" value="Não" onchange="toggleElements('iss')">Não<br>
+
+        <div id="issElements">
+            <label for="issAlquota">Alíquota ISS (%):</label>
+            <input type="text" id="issAlquota"><br>
+
+            <label for="issBase">Base ISS:</label>
+            <input type="text" id="issBase"><br>
+        </div>
+
+        <label>INSS:</label>
+        <input type="radio" name="inssOption" value="Sim" checked onchange="toggleElements('inss')">Sim
+        <input type="radio" name="inssOption" value="Não" onchange="toggleElements('inss')">Não<br>
+
+        <div id="inssElements">
+            <label for="inssBase">Base INSS:</label>
+            <input type="text" id="inssBase"><br>
+
+            <label for="inssAliquota">Alíquota INSS:</label>
+            <select id="inssAliquota">
+                <option value="3.5">3.5%</option>
+                <option value="11">11%</option>
+            </select><br>
+        </div>
+
+        <label>PIS/COFINS/CSLL:</label>
+        <input type="radio" name="pisCofinsCsllOption" value="Sim" checked>Sim
+        <input type="radio" name="pisCofinsCsllOption" value="Não">Não<br><br>
+        
+        <button type="button" onclick="calcularImpostos()">Calcular </button><br><br>
+
+        <div id="resultado" style="margin-top: 5px; text-align: right;"></div>
+    </form>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 20px;">
+    2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves
+  </footer>
+  <script src="Calculadora_PJ.js"></script>
+</body>
+</html>

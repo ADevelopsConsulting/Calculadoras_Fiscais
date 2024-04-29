@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de DIFAL</title>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="Calculadora_DIFAL.css">
+</head>
+
+<body>
+  <div class="container">
+    <div style="text-align: right; background-color: rgba(235, 231, 231, 0.1); padding: 30px; border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+      <h1 style="color: #120346; text-align: center;">Calculadora DIFAL "PI"</h1><br><br>
+      <div>
+        <label for="nota">Valor da nota:</label>
+        <input type="text" id="nota"><br><br>
+
+        <label for="aliquotaInterna">Alíquota interna (%):</label>
+        <input type="text" id="aliquotaInterna"><br><br>
+
+        <label for="aliquotaInterestadual">Alíquota interestadual (%):</label>
+        <input type="text" id="aliquotaInterestadual"><br><br>
+
+        <label for="frete">Valor do frete:</label>
+        <input type="text" id="frete"><br><br>
+
+        <button onclick="calcularICMS()">Calcular</button><br><br>
+
+        <div style="text-align: center;">
+          <p id="resultado"></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves.</p>
+  </footer>
+
+  <!-- Project -->
+  <script src="Calculadora_DIFAL.js"></script>
+</body>
+
+</html>
