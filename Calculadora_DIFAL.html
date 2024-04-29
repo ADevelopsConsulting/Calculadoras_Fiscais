@@ -10,17 +10,24 @@
 </head>
 
 <body>
-  <div class="container">
-    <div style="text-align: right; background-color: rgba(235, 231, 231, 0.1); padding: 30px; border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
-      <h1 style="color: #120346; text-align: center;">Calculadora DIFAL "PI"</h1><br><br>
-      <div>
+  <header>
+    <h1>Calculadora DIFAL "PI"</h1>
+  </header>
+
+  <main>
+    <div class="content">
+      <h2>DIFAL é uma sigla para “Diferencial de Alíquota do ICMS (Imposto sobre Circulação de Mercadorias e Serviços)”. Consiste em uma aplicação de percentual de uma alíquota em uma compra ou venda interestadual.</h2>
+    </div>
+
+    <div class="container">
+      <div style="text-align: right; background-color: rgba(235, 231, 231, 0.1); padding: 70px; border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
         <label for="nota">Valor da nota:</label>
         <input type="text" id="nota"><br><br>
 
-        <label for="aliquotaInterna">Alíquota interna (%):</label>
+        <label for="aliquotaInterna">Alíquota Interna (%):</label>
         <input type="text" id="aliquotaInterna"><br><br>
 
-        <label for="aliquotaInterestadual">Alíquota interestadual (%):</label>
+        <label for="aliquotaInterestadual">Alíquota Interestadual (%):</label>
         <input type="text" id="aliquotaInterestadual"><br><br>
 
         <label for="frete">Valor do frete:</label>
@@ -31,10 +38,9 @@
         <div style="text-align: center;">
           <p id="resultado"></p>
         </div>
-
       </div>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves.</p>
