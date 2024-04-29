@@ -7,9 +7,17 @@
   <link rel="stylesheet" href="Calculadora_PJ.css">
 </head>
 <body>
-  <div style="text-align: left; background-color: rgba(235, 231, 231, 0.1);padding: 30px;border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+
+  <header>
     <h1 style="color: #120346; text-align: center; ">Calculadora NFS-e</h1>
-    <div>
+  </header>
+
+  <main>
+    <div class="content"></div>
+    <h2>Nota Fiscal de Serviços Eletrônica (NFS-e) é um documento de existência digital, gerado e armazenado eletronicamente em Ambiente Nacional pela RFB, pela prefeitura ou por outra entidade conveniada, para documentar as operações de prestação de serviços.</h2>
+    
+    <div style="text-align: left; background-color: rgba(235, 231, 231, 0.1);padding: 30px;border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+      <div>
     <form id="taxCalculatorForm">
         <label for="valorNota">Valor da Nota:</label>
         <input type="text" id="valorNota"> <br>
@@ -19,6 +27,7 @@
         <label>IRRF:</label>
         <input type="radio" name="irrfOption" value="Sim" checked onchange="toggleElements('irrf')">Sim
         <input type="radio" name="irrfOption" value="Não" onchange="toggleElements('irrf')">Não<br>
+      
 
         <div id="irrfElements">
             <label for="irrfAliquota">Alíquota IRRF (%):</label>
@@ -55,7 +64,7 @@
             </select><br>
         </div>
 
-        <label>PIS/COFINS/CSLL:</label>
+        <label>PIS/COFINS/CSLL:</label><br>
         <input type="radio" name="pisCofinsCsllOption" value="Sim" checked>Sim
         <input type="radio" name="pisCofinsCsllOption" value="Não">Não<br><br>
         
@@ -64,6 +73,7 @@
         <div id="resultado" style="margin-top: 5px; text-align: right;"></div>
     </form>
   </div>
+  </main>
 
       </div>
     </div>
