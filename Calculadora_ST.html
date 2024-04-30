@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora ST (Loja Maranhão)</title>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header>
+    <h1>Calculadora ST (Loja Maranhão)</h1>
+  </header>
+
+  <main>
+    <div class="container">
+      <label for="baseNota">Digite a base da nota fiscal:</label>
+      <input type="text" id="baseNota" name="baseNota" required><br><br>
+
+      <label for="aliquota">Digite a alíquota (%):</label>
+      <input type="text" id="aliquota" name="aliquota" required><br><br>
+
+      <button id="calcularBtn">Calcular ICMS-ST</button>
+
+      <div id="resultado"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Antonio Alves.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
