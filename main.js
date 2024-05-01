@@ -8,3 +8,7 @@ function changeImage() {
 }
 
 setInterval(changeImage, interval);
+
+document.getElementById("calculadorasButton").addEventListener("click", function() {
+  window.location.href = "Calculadoras.html";
+});
