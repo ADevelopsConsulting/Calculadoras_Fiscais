@@ -13,3 +13,7 @@ document.getElementById('btnDF').addEventListener('click', function() {
 document.getElementById('btnST').addEventListener('click', function() {
   window.location.href = 'Calculadora_ST.html';
 });
+
+document.getElementById('btnTVI').addEventListener('click', function() {
+  window.location.href = 'calculadora_TVI.html';
+});
