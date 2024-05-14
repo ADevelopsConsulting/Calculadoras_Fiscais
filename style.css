@@ -20,10 +20,10 @@ body {
 }
 
 header, nav {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #003049;
+    color: #f6fff8;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 nav ul {
@@ -36,7 +36,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #f6fff8;
     text-decoration: none;
 }
 
@@ -51,7 +51,7 @@ main {
 }
 
 main h2, main p {
-    color: #fff;
+    color: #f6fff8;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 15px;
     margin: 30px;
@@ -60,9 +60,9 @@ main h2, main p {
 }
 
 .button {
-  background-color: #4CAF50; /* Cor de fundo */
+  background-color: #f77f00; /* Cor de fundo */
   border: none;
-  color: white; /* Cor do texto */
+  color: #f6fff8; /* Cor do texto */
   padding: 15px 32px; /* Espaçamento interno */
   text-align: center;
   text-decoration: none;
@@ -72,11 +72,11 @@ main h2, main p {
   transition-duration: 0.4s; /* Duração da transição */
   cursor: pointer;
   border-radius: 8px; /* Borda arredondada */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8); /* Sombra */
 }
 
 .button:hover {
-  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+  background-color: #fcbf49; /* Cor de fundo ao passar o mouse */
 }
 
 section {
@@ -89,7 +89,7 @@ h2 {
 }
 
 footer {
-    background-color: #f8f9fa;
+    background-color: rgba(248, 251, 252, 0.2);
     padding: 20px 0;
     text-align: center;
 }
@@ -104,10 +104,6 @@ footer {
     }
 
 @keyframes blink-animation {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
   50% {
     opacity: 0;
     transform: scale(1.1);
