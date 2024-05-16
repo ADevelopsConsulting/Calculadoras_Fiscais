@@ -116,13 +116,13 @@ button:hover {
 footer {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.4);
-    color: #fff; /* cor do texto */
+    color: #fff; /* Change text color to white */
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px;
-    padding: 10px; /* tamanho pagina */
-    z-index: 2;
+    padding: 10px; /* Add padding for better readability */
+    z-index: 2; /* Ensure it is above the background images */
 }
 
 @media (max-width: 768px) {
