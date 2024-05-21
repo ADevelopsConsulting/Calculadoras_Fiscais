@@ -1,6 +1,6 @@
 @keyframes slideInFromBottom {
   from {
-    transform: translateY(100px);
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
@@ -11,7 +11,7 @@
 
 @keyframes slideInFromLeft {
   from {
-    transform: translateX(-100px);
+    transform: translateX(-100%);
     opacity: 0;
   }
   to {
@@ -22,7 +22,7 @@
 
 @keyframes slideInFromRight {
   from {
-    transform: translateX(100px);
+    transform: translateX(100%);
     opacity: 0;
   }
   to {
@@ -33,7 +33,7 @@
 
 @keyframes slideInFromTop {
   from {
-    transform: translateY(-100px);
+    transform: translateY(-100%);
     opacity: 0;
   }
   to {
@@ -59,7 +59,7 @@ body {
 }
 
 header {
-  background-color: #22577a;
+  background-color:  rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
   padding: 20px 0;
@@ -70,7 +70,7 @@ header h1 {
 }
 
 main {
-  padding: 20px;
+  padding: 100px;
 }
 
 main h2 {
@@ -82,24 +82,33 @@ main p {
 }
 
 footer {
-  color: #0d1321;
+  background-color:  rgba(0, 0, 0, 0.5);
+  color: #fff;
   text-align: center;
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .calculator-button {
   background: linear-gradient(145deg, #708F96, #364649);
   color: #fff;
   border: none;
-  border-radius: 30px;
-  padding: 30px 50px;
-  font-size: 25px;
+  border-radius: 100px;
+  padding: 40px 60px;
+  font-size: 20px;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   transition: background 0.3s ease;
+  margin-bottom: 50px; /*Espaçamento entre os botões*/
+  width: calc(33.333% - 100 px); /* Largura para caber 3 em linha com espaço*/
 }
 
 .calculator-button:hover {
