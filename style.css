@@ -9,7 +9,7 @@ body {
     background-color: #000;
     color: #fff;
     text-align: center;
-    overflow: hidden; /* Ensure the body doesn't scroll */
+    overflow: hidden; 
 }
 
 header {
@@ -21,18 +21,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: moveDown 1s ease-out forwards;
-}
-
-@keyframes moveDown {
-    0% {
-        top: -50px;
-        opacity: 0;
-    }
-    100% {
-        top: 20px;
-        opacity: 1;
-    }
 }
 
 nav ul {
@@ -44,16 +32,6 @@ nav ul {
 nav ul li {
     font-weight: 700;
     cursor: pointer;
-    animation: fadeIn 1.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 main {
@@ -63,18 +41,6 @@ main {
     height: 100vh;
     position: relative;
     z-index: 1;
-    animation: zoomIn 1s ease-out forwards;
-}
-
-@keyframes zoomIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 main::before {
@@ -84,21 +50,12 @@ main::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://site.erpsoft.com.br/wp-content/uploads/2020/08/2847446-1-scaled.jpg'), url('https://blog.megaoffice.net/wp-content/uploads/2019/10/293880-entenda-as-diferencas-da-contabilidade-fiscal-e-gerencial.jpg');
+    background-image: url('https://site.erpsoft.com.br/wp-content/uploads/2020/08/2847446-1-scaled.jpg'), url('https://blog.megaoffice.net/wp-content/uploads/2019/10/293880-entenda-as-diferencas-da-contabilidade-fiscal-e-gerencial.jpg'); /* Replace with your actual image URLs */
     background-size: cover;
     background-position: center;
     background-blend-mode: lighten;
-    animation: backgroundChange 10s infinite alternate, fadeInBackground 1s ease-out forwards;
+    animation: backgroundChange 10s infinite alternate;
     z-index: -1;
-}
-
-@keyframes fadeInBackground {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 @keyframes backgroundChange {
@@ -117,40 +74,26 @@ main::before {
 }
 
 .content {
-    max-width: 800px;
+    max-width: 1000px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 40px;
-    border-radius: 10px;
-    animation: slideIn 1s ease-out forwards;
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    border-radius: 15px;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 45px;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-out forwards;
 }
 
 button {
     background-color: transparent;
     color: #fff;
-    border: 1px solid #fff;
-    padding: 15px 30px;
-    font-size: 18px;
+    border: 3px solid #fff;
+    padding: 25px 20px;
+    font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    animation: fadeIn 2.5s ease-out forwards;
 }
 
 button:hover {
@@ -163,7 +106,6 @@ button:hover {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    animation: fadeIn 3s ease-out forwards;
 }
 
 .info-item {
@@ -174,14 +116,15 @@ button:hover {
 footer {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    bottom: 20px;
+    color: #fff; /* Alterar a cor do texto para branco */
+    bottom: 0;
     left: 50%;
+    width: 100%;
     transform: translateX(-50%);
-    font-size: 12px;
-    padding: 10px;
-    z-index: 2;
-    animation: fadeIn 3.5s ease-out forwards;
+    font-size: 13px;
+    padding: 6px; /* Adicione preenchimento para melhor legibilidade */
+    z-index: 2; /* 
+    Certifique-se de que esteja acima das imagens de fundo */
 }
 
 @media (max-width: 768px) {
