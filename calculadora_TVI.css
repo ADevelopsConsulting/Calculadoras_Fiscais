@@ -1,11 +1,14 @@
 body {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 90vh;
   margin: 0;
-  background: rgb(212, 222, 226) 50%;
-  padding: 100px 200px;
+  background-image: url('https://www.wilgusassociates.com/wp-content/uploads/2023/03/bookkeeping_0.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -17,7 +20,7 @@ body {
 header {
   width: 100%;
   text-align: center;
-  margin-bottom: 60px; /* Espaço abaixo do h1 */
+  margin-bottom: 60px; 
   animation: slideInFromTop 1s ease-in-out;
 }
 
@@ -33,15 +36,18 @@ header {
 }
 
 h1 {
-  color: #210780;
-  text-shadow: 1px 1px 1px rgba(51, 49, 49, 0.3);
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  width: 100%;
+  padding: 15px 0;
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-grow: 1; /* Ocupar o espaço restante */
+  flex-grow: 1; 
   animation: slideInFromLeft 1s ease-in-out;
 }
 
@@ -57,17 +63,17 @@ main {
 }
 
 .container {
-  text-align: center;
-  background-color: rgba(235, 231, 231, 0.1);
-  padding: 70px;
-  border-radius: 15px;
+  text-align: right;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 80px;
+  border-radius: 50px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   animation: fadeIn 1s ease-in-out 0.5s;
   animation-fill-mode: both;
 }
 
 button {
-  background-color: #1e90ff;
+  background-color: #f08307;
   color: #ffffff;
   font-size: 16px;
   padding: 10px 20px;
@@ -100,10 +106,13 @@ button:hover {
 }
 
 footer {
+  background-color:  rgba(0, 0, 0, 0.5);
+  color: #fff;
   text-align: center; 
+  position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 15px 0; 
+  padding: 5px 0;
   animation: fadeIn 1s ease-in-out 1.5s;
   animation-fill-mode: both;
 }
