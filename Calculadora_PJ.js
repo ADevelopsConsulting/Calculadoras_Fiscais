@@ -40,7 +40,7 @@ function formatarValor(valor) {
                 let irrf = 0, inss = 0, iss = 0;
                 if (irrfOption === 'Sim') irrf = valorNota * irrfAliquota;
                 if (inssOption === 'Sim') inss = inssBase * inssAliquota;
-                if (issOption === 'Sim') iss = valorNota * issAlquota;
+                if (issOption === 'Sim') iss = issBase * issAlquota;
 
 
     const pisarred = Math.round(pis * 100) / 100;
