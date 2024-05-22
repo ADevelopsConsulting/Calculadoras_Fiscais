@@ -1,14 +1,16 @@
 body {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 90vh;
+    min-height: 90vh;
     margin: 0;
-    background: rgb(212, 222, 226) 50%;
-    padding: 20px 250px;
+    background-image: url('https://blog.golcontabilidade.com.br/wp-content/uploads/2021/04/screen_2x-2-1140x641.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
     animation: fadeIn 1s ease-in-out;
-}
+  }
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -16,7 +18,9 @@ body {
 }
 
 header {
-    width: 100%; /* Ocupa toda a largura */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
     animation: slideInFromTop 1s ease-in-out;
 }
 
@@ -32,10 +36,12 @@ header {
 }
 
 h1 {
-    color: #210780;
-    text-align: center;
-    text-shadow: 1px 1px 1px rgba(51, 49, 49, 0.3);
-}
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    width: 100%;
+    padding: 15px 0;
+  }
 
 main {
     display: flex;
@@ -55,22 +61,16 @@ main {
     }
 }
 
-.content {
-    margin: 60px; /* Adiciona margem interna */
-    text-align: center;
+.container {
+    text-align: right;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 60px;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1s ease-in-out 0.5s;
     animation-fill-mode: both;
-}
+  }
 
-h2 {
-    color: #210780;
-    text-align: justify;
-    padding: 10px 15px; /* Ajustando o padding */
-    margin-left: auto;
-    text-shadow: 1px 1px 1px rgba(51, 49, 49, 0.4);
-    animation: slideInFromRight 1s ease-in-out 0.5s;
-    animation-fill-mode: both;
-}
 
 @keyframes slideInFromRight {
     from {
@@ -84,7 +84,7 @@ h2 {
 }
 
 button {
-    background-color: #1E90FF;
+    background-color: #f08307;
     color: #ffffff;
     font-size: 16px;
     padding: 10px 100px;
@@ -118,7 +118,13 @@ button:hover {
 }
 
 footer {
-    text-align: center;
+    background-color:  rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
     animation: fadeIn 1s ease-in-out 1.5s;
     animation-fill-mode: both;
-    }
+  }
