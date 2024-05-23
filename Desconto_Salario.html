@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Desconto sobre Salário</title>
+    <link rel="stylesheet" href="Desconto_Salario.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora Desconto sobre Salário</h1>
+    </header>
+
+<main>
+    <div class="container">
+    <form id="calculatorForm">
+        <div>
+        <label for="ValorSalario">Valor Salário</label>
+        <input type="text" id="ValorSalario" name="ValorSalario" required><br><br>
+                    
+        <label for="categoria">Categoria do Trabalhador</label>
+        <select id="categoria" name="categoria" required>
+        <option value="geral">Trabalhador Geral</option>
+        <option value="domestico">Doméstico</option>
+        <option value="aprendiz">Jovem Aprendiz</option>
+        </select><br><br>
+                    
+        <button type="button" id="calcularDesc">Calcular</button>
+        </div>
+        </form>
+        <div id="resultado" style="margin-top: 20px;"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Inc. Todos os direitos reservados Contabilidade - Pintos LTDA.</p>
+    </footer>
+
+    <script src="Desconto_Salario.js"></script>
+</body>
+</html>
