@@ -77,13 +77,18 @@ main::before {
     max-width: 1000px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 40px;
-    border-radius: 15px;
+    padding: 60px;
+    border-radius: 25px;
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 40px;
     margin-bottom: 20px;
+}
+
+h4 {
+    justify-content: center;
+    align-items: center;
 }
 
 button {
