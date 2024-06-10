@@ -133,3 +133,11 @@ footer {
   animation: fadeIn 1s ease-in-out 1.5s;
   animation-fill-mode: both;
 }
+
+.menu-button {
+    display: flex;
+    margin: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
