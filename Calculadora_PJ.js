@@ -10,11 +10,11 @@ function formatarValor(valor) {
             const optionValue = document.querySelector(`input[name="${type}Option"]:checked`).value;
             const elements = document.getElementById(`${type}Elements`);
             if (optionValue === 'Sim') {
-                elements.classList.remove('hidden');
-            } else {
-                elements.classList.add('hidden');
-            }
-        }
+      elements.style.display = 'block';
+  } else {
+      elements.style.display = 'none';
+  }
+}
         
 
         function calcularImpostos() {
