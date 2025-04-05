@@ -1,154 +1,100 @@
-body {
-  font-family: 'Inter', sans-serif; /* Fonte mais moderna e limpa */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.form-header {
+  margin-bottom: 20px;
+}
+
+.form-header h2 {
+  color: #e0e0ff;
+  font-size: 1.8rem;
+  margin: 0 0 10px;
+}
+
+.form-header p {
+  color: #b0b0ff;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modern-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 100vh; /* Ajuste para ocupar toda a altura */
-  margin: 0;
-  background: linear-gradient(135deg, #1e1e2f 0%, #3b1b5a 100%); /* Gradiente escuro e futurista */
-  background-size: 200% 200%;
-  animation: gradientShift 15s ease infinite; /* Animação de fundo sutil */
-  padding: 0;
-  overflow-x: hidden; /* Previne barras horizontais */
+  gap: 20px;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
-
-header {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
-  background: rgba(255, 255, 255, 0.05); /* Efeito glassmorphism */
-  backdrop-filter: blur(10px); /* Desfoque sutil */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  animation: slideInFromTop 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de animação moderna */
-}
-
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-h1 {
-  margin: 0;
-  color: #e0e0ff; /* Tom claro com nuance futurista */
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(224, 224, 255, 0.5); /* Brilho suave */
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Centralização mais fluida */
-  flex-grow: 1;
-  padding: 20px;
-}
-
-.container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.1); /* Glassmorphism */
-  backdrop-filter: blur(12px); /* Desfoque mais pronunciado */
-  padding: 60px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  animation: float 4s ease-in-out infinite; /* Efeito flutuante */
-  max-width: 600px; /* Limite para melhor legibilidade */
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-button {
-  background: linear-gradient(90deg, #ff6f61, #ffb347); /* Gradiente vibrante */
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+.input-group {
   position: relative;
-  overflow: hidden;
 }
 
-button::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
-}
-
-button:hover::after {
-  width: 200%;
-  height: 200%;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
-}
-
-#resultado {
-  margin-top: 25px;
-  color: #e0e0ff;
-  font-size: 1.2rem;
-  text-shadow: 0 0 5px rgba(224, 224, 255, 0.3);
-}
-
-#imprimirBtn {
-  margin-top: 20px;
-  display: none;
-}
-
-footer {
-  background: rgba(0, 0, 0, 0.7);
-  color: #b0b0ff; /* Tom mais suave e moderno */
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 0;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-}
-
-.menu-button {
+.input-group label {
   display: flex;
-  margin: 15px;
-  padding: 12px 25px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  align-items: center;
+  color: #e0e0ff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
-.menu-button:hover {
-  background: rgba(255, 255, 255, 0.25);
+.input-group label svg {
+  margin-right: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #ff6f61;
+  outline: none;
+}
+
+button svg {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.result-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn {
+  background: linear-gradient(90deg, #6b7280, #9ca3af); /* Tom mais neutro para botão secundário */
+  box-shadow: 0 4px 15px rgba(107, 114, 128, 0.4);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links a {
+  color: #ff6f61;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
