@@ -10,9 +10,9 @@
             return;
         }
 
-        const tetoINSS = 7786.12;
+        const tetoINSS = 8157.41;
         const percentualINSS = 0.11;
-        const descontoMaxINSS = 856.46;
+        const descontoMaxINSS = 897.32;
 
         let valorINSS = valorNF * percentualINSS;
         if (valorNF > tetoINSS) {
