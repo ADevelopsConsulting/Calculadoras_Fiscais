@@ -1,27 +1,31 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif; /* Fonte mais moderna e limpa */
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 90vh;
+  min-height: 100vh; /* Ajuste para ocupar toda a altura */
   margin: 0;
-  background-image: url('https://img.welt.de/img/finanzen/geldanlage/mobile149818132/4281351787-ci16x9-w1200/Von-falschen-Prognosen-und-zu-viel-Vertrauen-Anlegerfehler.jpg');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #1e1e2f 0%, #3b1b5a 100%); /* Gradiente escuro e futurista */
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite; /* Animação de fundo sutil */
   padding: 0;
-  animation: fadeIn 1s ease-in-out;
+  overflow-x: hidden; /* Previne barras horizontais */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 header {
   width: 100%;
   text-align: center;
-  margin-bottom: 60px;
-  animation: slideInFromTop 1s ease-in-out;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.05); /* Efeito glassmorphism */
+  backdrop-filter: blur(10px); /* Desfoque sutil */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInFromTop 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de animação moderna */
 }
 
 @keyframes slideInFromTop {
@@ -37,84 +41,82 @@ header {
 
 h1 {
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  width: 100%;
-  padding: 15px 0;
+  color: #e0e0ff; /* Tom claro com nuance futurista */
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(224, 224, 255, 0.5); /* Brilho suave */
 }
 
 main {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; /* Centralização mais fluida */
   flex-grow: 1;
-  animation: slideInFromLeft 1s ease-in-out;
-}
-
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  padding: 20px;
 }
 
 .container {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 80px;
-  border-radius: 50px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 1s ease-in-out 0.5s;
-  animation-fill-mode: both;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism */
+  backdrop-filter: blur(12px); /* Desfoque mais pronunciado */
+  padding: 60px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: float 4s ease-in-out infinite; /* Efeito flutuante */
+  max-width: 600px; /* Limite para melhor legibilidade */
 }
 
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 button {
-  background-color: #f08307;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 10px 20px;
+  background: linear-gradient(90deg, #ff6f61, #ffb347); /* Gradiente vibrante */
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 30px;
   border: none;
   border-radius: 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  animation: slideInFromBottom 1s ease-in-out 1s;
-  animation-fill-mode: both;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover::after {
+  width: 200%;
+  height: 200%;
 }
 
 button:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes slideInFromBottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
 }
 
 #resultado {
-  margin-top: 20px;
+  margin-top: 25px;
+  color: #e0e0ff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(224, 224, 255, 0.3);
 }
 
 #imprimirBtn {
@@ -123,21 +125,30 @@ button:hover {
 }
 
 footer {
-  background-color:  rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: center; 
+  background: rgba(0, 0, 0, 0.7);
+  color: #b0b0ff; /* Tom mais suave e moderno */
+  text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 5px 0;
-  animation: fadeIn 1s ease-in-out 1.5s;
-  animation-fill-mode: both;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .menu-button {
-    display: flex;
-    margin: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  display: flex;
+  margin: 15px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
