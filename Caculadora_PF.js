@@ -126,7 +126,7 @@ function imprimirRelatorio() {
         </head>
         <body>
             <div class="header">
-                <img src="https://via.placeholder.com/150x50?text=Pintos+Contabilidade" class="logo" alt="Pintos Contabilidade">
+                <img src="https://images.app.goo.gl/yL7SxRZwvcHzFyhx7" class="logo" alt="Pintos Contabilidade">
                 <div class="company-info">
                     Pintos Contabilidade LTDA | CNPJ: 12.345.678/0001-99<br>
                     Rua Exemplo, 123 - Centro, Cidade - UF | (11) 1234-5678
