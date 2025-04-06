@@ -1,71 +1,71 @@
 // Função principal de cálculo
 function calcularTaxa() {
-    let valorNF = parseFloat(document.getElementById('ValorNF').value.replace(/\./g, '').replace(',', '.'));
-
-    if (isNaN(valorNF)) {
-        alert('Por favor, insira um valor numérico válido.');
-        return;
+  let valorNF = parseFloat(document.getElementById('ValorNF').value.replace(/\./g, '').replace(',', '.'));
+  
+  if (isNaN(valorNF)) {
+    alert('Por favor, insira um valor numérico válido.');
+    return;
+  }
+  
+  const tetoINSS = 8157.41;
+  const percentualINSS = 0.11;
+  const descontoMaxINSS = 897.32;
+  
+  let valorINSS = valorNF * percentualINSS;
+  if (valorNF > tetoINSS) {
+    valorINSS = descontoMaxINSS;
+  }
+  
+  const faixasIR = [
+    { limite: 2259.20, aliquota: 0, deducao: 0 },
+    { limite: 2826.65, aliquota: 0.075, deducao: 169.44 },
+    { limite: 3751.05, aliquota: 0.15, deducao: 381.44 },
+    { limite: 4664.68, aliquota: 0.225, deducao: 662.77 },
+    { limite: Infinity, aliquota: 0.275, deducao: 896 }
+  ];
+  
+  let valorDescontadoINSS = valorNF - valorINSS;
+  let valorIR = 0;
+  
+  for (let i = 0; i < faixasIR.length; i++) {
+    if (valorDescontadoINSS <= faixasIR[i].limite) {
+      valorIR = (valorDescontadoINSS * faixasIR[i].aliquota) - faixasIR[i].deducao;
+      break;
     }
-
-    const tetoINSS = 8157.41;
-    const percentualINSS = 0.11;
-    const descontoMaxINSS = 897.32;
-
-    let valorINSS = valorNF * percentualINSS;
-    if (valorNF > tetoINSS) {
-        valorINSS = descontoMaxINSS;
-    }
-
-    const faixasIR = [
-        { limite: 2259.20, aliquota: 0, deducao: 0 },
-        { limite: 2826.65, aliquota: 0.075, deducao: 169.44 },
-        { limite: 3751.05, aliquota: 0.15, deducao: 381.44 },
-        { limite: 4664.68, aliquota: 0.225, deducao: 662.77 },
-        { limite: Infinity, aliquota: 0.275, deducao: 896 }
-    ];
-
-    let valorDescontadoINSS = valorNF - valorINSS;
-    let valorIR = 0;
-
-    for (let i = 0; i < faixasIR.length; i++) {
-        if (valorDescontadoINSS <= faixasIR[i].limite) {
-            valorIR = (valorDescontadoINSS * faixasIR[i].aliquota) - faixasIR[i].deducao;
-            break;
-        }
-    }
-
-    const valorLiquido = valorDescontadoINSS - valorIR;
-
-    const resultadoFinal = document.getElementById('resultado');
-    resultadoFinal.innerHTML = `
+  }
+  
+  const valorLiquido = valorDescontadoINSS - valorIR;
+  
+  const resultadoFinal = document.getElementById('resultado');
+  resultadoFinal.innerHTML = `
         <p>Valor INSS: R$ ${formatarNumero(valorINSS)}</p>
         <p>Valor IR: R$ ${formatarNumero(valorIR)}</p>
         <p>Valor Líquido: R$ ${formatarNumero(valorLiquido)}</p>
     `;
-
-    const imprimirBtn = document.getElementById('imprimirBtn');
-    imprimirBtn.style.display = 'flex'; // Alinha com o estilo do CSS (flex)
-    imprimirBtn.dataset.inss = valorINSS;
-    imprimirBtn.dataset.ir = valorIR;
-    imprimirBtn.dataset.liquido = valorLiquido;
+  
+  const imprimirBtn = document.getElementById('imprimirBtn');
+  imprimirBtn.style.display = 'flex'; // Alinha com o estilo do CSS (flex)
+  imprimirBtn.dataset.inss = valorINSS;
+  imprimirBtn.dataset.ir = valorIR;
+  imprimirBtn.dataset.liquido = valorLiquido;
 }
 
 // Função para formatar números
 function formatarNumero(numero) {
-    return numero.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return numero.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 // Função de impressão profissional
 function imprimirRelatorio() {
-    let valorNF = parseFloat(document.getElementById('ValorNF').value.replace(/\./g, '').replace(',', '.'));
-    let valorINSS = parseFloat(document.getElementById('imprimirBtn').dataset.inss);
-    let valorIR = parseFloat(document.getElementById('imprimirBtn').dataset.ir);
-    let valorLiquidoNota = parseFloat(document.getElementById('imprimirBtn').dataset.liquido);
-
-    let relatorioHTML = `
+  let valorNF = parseFloat(document.getElementById('ValorNF').value.replace(/\./g, '').replace(',', '.'));
+  let valorINSS = parseFloat(document.getElementById('imprimirBtn').dataset.inss);
+  let valorIR = parseFloat(document.getElementById('imprimirBtn').dataset.ir);
+  let valorLiquidoNota = parseFloat(document.getElementById('imprimirBtn').dataset.liquido);
+  
+  let relatorioHTML = `
         <html>
         <head>
-            <title>Relatório de Análise de Orçamento - Pintos Contabilidade</title>
+            <title>Relatório de Análise de Orçamento - Contabilidade - Pintos LTDA</title>
             <style>
                 body {
                     font-family: 'Inter', sans-serif;
@@ -126,9 +126,9 @@ function imprimirRelatorio() {
         </head>
         <body>
             <div class="header">
-                <img src="https://images.app.goo.gl/yL7SxRZwvcHzFyhx7" class="logo" alt="Pintos Contabilidade">
+                <img src="https://pintos.com.br/media/logo/stores/1/lojas_pintos.png " class="logo" alt="Contabilidade - Pintos LTDA">
                 <div class="company-info">
-                    Pintos Contabilidade LTDA | CNPJ: 12.345.678/0001-99<br>
+                   Pintos LTDA | CNPJ: 12.345.678/0001-99<br>
                     Rua Exemplo, 123 - Centro, Cidade - UF | (11) 1234-5678
                 </div>
                 <div class="title">Relatório de Análise de Orçamento</div>
@@ -164,14 +164,14 @@ function imprimirRelatorio() {
         </body>
         </html>
     `;
-
-    let relatorioWindow = window.open('', 'Relatório de Análise de Orçamento', 'width=600,height=400');
-    relatorioWindow.document.write(relatorioHTML);
-    relatorioWindow.document.close();
-    relatorioWindow.print();
+  
+  let relatorioWindow = window.open('', 'Relatório de Análise de Orçamento', 'width=600,height=400');
+  relatorioWindow.document.write(relatorioHTML);
+  relatorioWindow.document.close();
+  relatorioWindow.print();
 }
 
 // Ocultar o botão de impressão inicialmente
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('imprimirBtn').style.display = 'none';
+  document.getElementById('imprimirBtn').style.display = 'none';
 });
