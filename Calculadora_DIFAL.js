@@ -127,7 +127,7 @@ function imprimirRelatorio() {
 
             <div class="footer">
                 Documento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}<br>
-                Pintos Contabilidade LTDA - Todos os direitos reservados
+                Contabilidade - Pintos LTDA - Todos os direitos reservados
             </div>
         </body>
         </html>
