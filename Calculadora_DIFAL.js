@@ -100,8 +100,8 @@ function imprimirRelatorio() {
             <div class="header">
                 <img src="https://pintos.com.br/media/logo/stores/1/lojas_pintos.png" class="logo" alt="Contabilidade - Pintos LTDA">
                 <div class="company-info">
-                   Pintos LTDA | CNPJ: 12.345.67<br>
-                    Rua Exemplo, 123 - Centro, Cidade - UF | (11) 1234-5678
+                 Pintos LTDA | CNPJ: 06.837.645/0001-60<br>
+                   Rua Alvaro Mendes, 1237 - Centro, Teresina - PI | (86) 2107-4023
                 </div>
                 <div class="title">Relatório de Cálculo de DIFAL</div>
             </div>
