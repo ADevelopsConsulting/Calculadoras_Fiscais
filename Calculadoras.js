@@ -1,5 +1,5 @@
 document.getElementById('btnPF').addEventListener('click', function() {
-  window.location.href = 'Calculadora_PF.html';
+  window.location.href = 'Caculadora_PF.html';
 });
 
 document.getElementById('btnPJ').addEventListener('click', function() {
@@ -15,7 +15,7 @@ document.getElementById('btnST').addEventListener('click', function() {
 });
 
 document.getElementById('btnTV').addEventListener('click', function() {
-  window.location.href = 'Calculadora_TVI.html';
+  window.location.href = 'calculadora_TVI.html';
 });
 
 document.querySelector('.menu-button').addEventListener('click', function() {
