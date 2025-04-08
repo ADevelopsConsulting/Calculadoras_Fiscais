@@ -76,18 +76,17 @@ main {
 /* Container do carrossel */
 .carousel-container {
   position: relative;
-  max-width: 300px; /* Largura fixa para exibir apenas um item */
-  width: 100%;
+  width: 300px; /* Largura fixa para exibir apenas uma calculadora */
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden; /* Garante que apenas um item seja visível */
 }
 
 /* Carrossel */
 .carousel {
   display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
   width: 100%;
   transition: transform 0.5s ease-in-out; /* Efeito de circulação suave */
 }
@@ -215,7 +214,7 @@ footer p {
 /* Responsividade */
 @media (max-width: 768px) {
   header h1 { font-size: 1.4rem; }
-  .carousel-container { max-width: 250px; }
+  .carousel-container { width: 250px; }
   .calculator-button { 
     flex: 0 0 250px;
     font-size: 0.9rem; 
