@@ -46,15 +46,15 @@ for (let i = 0; i < totalItems; i++) {
 const dots = document.querySelectorAll('.dot');
 
 function updateCarousel() {
-  const itemWidth = buttons[0].offsetWidth; // Largura do botão sem gap
+  const itemWidth = buttons[0].offsetWidth; // Largura do botão
   const offset = -currentIndex * itemWidth;
   carousel.style.transform = `translateX(${offset}px)`;
-
+  
   // Atualizar dots
   dots.forEach((dot, index) => {
     dot.classList.toggle('active', index === currentIndex);
   });
-
+  
   // Habilitar/desabilitar setas
   prevBtn.disabled = currentIndex === 0;
   nextBtn.disabled = currentIndex === totalItems - 1;
