@@ -56,11 +56,10 @@ header h1 {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .menu-button:hover {
-  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
 }
 
@@ -73,13 +72,25 @@ main {
   padding: 120px 20px;
 }
 
+/* Seção das calculadoras */
+.calculators-section {
+  text-align: center;
+}
+
+.calculators-section h2 {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 30px; /* Espaço entre o título e os botões */
+}
+
 /* Container das calculadoras */
 .calculators-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que os botões quebrem para a linha seguinte se não houver espaço */
-  gap: 20px; /* Espaço entre os botões */
+  flex-wrap: wrap;
+  gap: 30px; /* Aumentado de 20px para 30px para mais harmonia */
   justify-content: center;
-  max-width: 1200px; /* Largura máxima do contêiner */
+  max-width: 1200px;
+  padding: 20px; /* Adicionado padding para respiro nas bordas */
 }
 
 /* Botões das calculadoras */
@@ -95,8 +106,8 @@ main {
   box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-width: 250px; /* Largura mínima para consistência */
+  transition: box-shadow 0.3s ease;
+  min-width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +144,6 @@ main {
 }
 
 .calculator-button:hover {
-  transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(255, 111, 97, 0.7);
 }
 
@@ -155,10 +165,15 @@ footer p {
 /* Responsividade */
 @media (max-width: 768px) {
   header h1 { font-size: 1.4rem; }
+  .calculators-section h2 { font-size: 1.2rem; margin-bottom: 20px; }
+  .calculators-container { 
+    gap: 20px; /* Reduzido para telas menores */
+    padding: 10px; 
+  }
   .calculator-button { 
     font-size: 0.9rem; 
     padding: 12px 20px; 
-    min-width: 200px; /* Reduz a largura mínima em telas menores */
+    min-width: 200px;
   }
   .calc-icon { 
     width: 25px; 
