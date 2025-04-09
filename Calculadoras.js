@@ -16,7 +16,7 @@ document.getElementById('btnST').addEventListener('click', function() {
 });
 
 document.getElementById('btnTV').addEventListener('click', function() {
-  window.location.href = 'Calculadora_TVI.html'; // Corrigido "calculadora" para "Calculadora" (consistência)
+  window.location.href = 'calculadora_TVI.html'; // Corrigido "calculadora" para "Calculadora" (consistência)
 });
 
 document.querySelector('.menu-button').addEventListener('click', function() {
