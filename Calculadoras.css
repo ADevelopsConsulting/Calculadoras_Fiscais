@@ -73,22 +73,13 @@ main {
   padding: 120px 20px;
 }
 
-/* Container do carrossel */
-.carousel-container {
-  position: relative;
-  width: 300px; /* Largura fixa para exibir apenas uma calculadora */
+/* Container das calculadoras */
+.calculators-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden; /* Garante que apenas um item seja visível */
-}
-
-/* Carrossel */
-.carousel {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  transition: transform 0.5s ease-in-out; /* Efeito de circulação suave */
+  flex-wrap: wrap; /* Permite que os botões quebrem para a linha seguinte se não houver espaço */
+  gap: 20px; /* Espaço entre os botões */
+  justify-content: center;
+  max-width: 1200px; /* Largura máxima do contêiner */
 }
 
 /* Botões das calculadoras */
@@ -105,7 +96,7 @@ main {
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 0 0 300px; /* Largura fixa para ocupar o container */
+  min-width: 250px; /* Largura mínima para consistência */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,56 +137,6 @@ main {
   box-shadow: 0 8px 25px rgba(255, 111, 97, 0.7);
 }
 
-/* Setas de navegação */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 111, 97, 0.8);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  z-index: 5;
-}
-
-.arrow:hover {
-  background: rgba(255, 111, 97, 1);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.left-arrow {
-  left: -50px;
-}
-
-.right-arrow {
-  right: -50px;
-}
-
-/* Indicadores (dots) */
-.carousel-dots {
-  display: flex;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.dot.active {
-  background: #ff6f61;
-}
-
 /* Footer */
 footer {
   width: 100%;
@@ -214,22 +155,14 @@ footer p {
 /* Responsividade */
 @media (max-width: 768px) {
   header h1 { font-size: 1.4rem; }
-  .carousel-container { width: 250px; }
   .calculator-button { 
-    flex: 0 0 250px;
     font-size: 0.9rem; 
     padding: 12px 20px; 
+    min-width: 200px; /* Reduz a largura mínima em telas menores */
   }
   .calc-icon { 
     width: 25px; 
     height: 25px; 
   }
   main { padding: 80px 10px; }
-  .left-arrow { left: 10px; }
-  .right-arrow { right: 10px; }
-  .arrow { 
-    width: 30px; 
-    height: 30px; 
-    font-size: 1rem; 
-  }
 }
