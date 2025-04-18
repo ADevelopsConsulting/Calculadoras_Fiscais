@@ -5,28 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora Desconto sobre Salário | Contabilidade Pintos</title>
 
-  <!-- Google Fonts para 'Inter' -->
+  <!-- Google Fonts para 'Poppins' -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Script Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
-  <!-- Custom Styles -->
+  <!-- Arquivo de estilos -->
   <link rel="stylesheet" href="Desconto_Salario.css">
 </head>
+
 <body>
+  <div id="particles-js"></div>
+  
   <header>
     <div class="header-content">
       <h1>
         <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#e0e0ff" stroke-width="2"/>
-          <path d="M2 17L12 22L22 17" stroke="#e0e0ff" stroke-width="2"/>
-          <path d="M2 12L12 17L22 12" stroke="#e0e0ff" stroke-width="2"/>
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
         </svg>
         Calculadora Desconto sobre Salário
       </h1>
       <button class="menu-button" onclick="window.location.href='index.html'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 12H21M3 6H21M3 18H21" stroke="#fff" stroke-width="2"/>
+          <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Voltar ao Início
       </button>
@@ -37,22 +43,31 @@
     <div class="container">
       <div class="form-header">
         <h2>Cálculo de Descontos Salariais</h2>
-        <p>Informe o salário e a categoria para um cálculo preciso</p>
+        <p>Informe o salário, dependentes e a categoria para um cálculo preciso dos seus descontos</p>
       </div>
       <form id="calculatorForm" class="modern-form">
         <div class="input-group">
           <label for="ValorSalario">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
+              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Valor do Salário (R$)
           </label>
           <input type="text" id="ValorSalario" name="ValorSalario" placeholder="Ex: 2000,00" required>
         </div>
         <div class="input-group">
+          <label for="dependentes">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 1 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Número de Dependentes
+          </label>
+          <input type="number" id="dependentes" name="dependentes" min="0" value="0" required>
+        </div>
+        <div class="input-group">
           <label for="categoria">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 1 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Categoria do Trabalhador
           </label>
@@ -65,14 +80,14 @@
         <button type="button" onclick="calcularDesconto()">
           <span>Calcular Agora</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 18L15 12L9 6" stroke="#fff" stroke-width="2"/>
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </form>
-      <div id="resultado" class="result-box"></div>
+      <div id="resultado" class="result-box" style="display: none;"></div>
       <button id="imprimirBtn" class="secondary-btn" onclick="imprimirRelatorio()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 9V2H18V9M6 14H18M6 18H18V22H6V18Z" stroke="#fff" stroke-width="2"/>
+          <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Imprimir Relatório
       </button>
@@ -85,7 +100,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Arquivo de scripts -->
   <script src="Desconto_Salario.js"></script>
 </body>
 </html>

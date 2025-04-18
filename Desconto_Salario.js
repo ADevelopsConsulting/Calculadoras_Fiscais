@@ -1,21 +1,112 @@
-// Ocultar botão de impressão ao carregar a página
+// Inicialização do Particles.js
+particlesJS('particles-js', {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#38bdf8"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      }
+    },
+    "opacity": {
+      "value": 0.3,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 2,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#38bdf8",
+      "opacity": 0.2,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 140,
+        "line_linked": {
+          "opacity": 0.5
+        }
+      },
+      "push": {
+        "particles_nb": 4
+      }
+    }
+  },
+  "retina_detect": true
+});
+
+// Ocultar botão de impressão e resultado ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('imprimirBtn').style.display = 'none';
+  document.getElementById('resultado').style.display = 'none';
 });
 
 // Função principal de cálculo
 function calcularDesconto() {
   // Obter e formatar o salário inserido
   let ValorSalario = parseFloat(document.getElementById('ValorSalario').value.replace(/\./g, '').replace(',', '.'));
+  let dependentes = parseInt(document.getElementById('dependentes').value);
   let categoria = document.getElementById('categoria').value;
   
-  // Validar entrada
+  // Validar entradas
   if (isNaN(ValorSalario) || ValorSalario <= 0) {
-    alert('Por favor, insira um valor numérico válido.');
+    alert('Por favor, insira um valor numérico válido para o salário.');
+    return;
+  }
+  if (isNaN(dependentes) || dependentes < 0) {
+    alert('Por favor, insira um número válido de dependentes.');
     return;
   }
   
-  // Definição das faixas do INSS
+  // Definição das faixas do INSS (valores de 2025)
   const faixasINSS = [
     { limite: 1518.00, aliquota: 0.075, deducao: 0 },
     { limite: 2793.88, aliquota: 0.09, deducao: 22.77 },
@@ -44,7 +135,14 @@ function calcularDesconto() {
   // Ajuste para o valor base do IR (desconta INSS apenas se não for aprendiz)
   let valorDescontadoINSS = categoria === 'aprendiz' ? ValorSalario : ValorSalario - ValorINSS;
   
-  // Definição das faixas do IR
+  // Dedução por dependente (R$ 189,59 por dependente por mês em 2025)
+  const deducaoDependente = 189.59;
+  let deducaoTotalDependentes = dependentes * deducaoDependente;
+  
+  // Base de cálculo do IR após dedução de dependentes
+  let baseCalculoIR = Math.max(valorDescontadoINSS - deducaoTotalDependentes, 0);
+  
+  // Definição das faixas do IR (valores de 2025)
   const faixasIR = [
     { limite: 2259.20, aliquota: 0, deducao: 0 },
     { limite: 2826.65, aliquota: 0.075, deducao: 169.44 },
@@ -56,8 +154,8 @@ function calcularDesconto() {
   // Cálculo do IR
   let ValorIR = 0;
   for (let i = 0; i < faixasIR.length; i++) {
-    if (valorDescontadoINSS <= faixasIR[i].limite) {
-      ValorIR = (valorDescontadoINSS * faixasIR[i].aliquota) - faixasIR[i].deducao;
+    if (baseCalculoIR <= faixasIR[i].limite) {
+      ValorIR = (baseCalculoIR * faixasIR[i].aliquota) - faixasIR[i].deducao;
       break;
     }
   }
@@ -73,15 +171,28 @@ function calcularDesconto() {
   let ValorFGTS = ValorSalario * aliquotaFGTS;
   
   // Cálculo do valor líquido
-  const valorLiquido = valorDescontadoINSS - ValorIR;
+  const valorLiquido = categoria === 'aprendiz' ? ValorSalario - ValorIR : valorDescontadoINSS - ValorIR;
   
-  // Exibir os resultados na tela
+  // Exibir os resultados na tela com animação
   const resultadoFinal = document.getElementById('resultado');
+  resultadoFinal.style.display = 'block';
   resultadoFinal.innerHTML = `
-    <p class="${categoria === 'aprendiz' ? 'inss-aprendiz' : ''}">Valor INSS: R$ ${formatarNumero(ValorINSS)}${categoria === 'aprendiz' ? ' <span class="tooltip">? <span class="tooltiptext">Pago pela empresa, sem desconto no salário.</span></span>' : ''}</p>
-    <p>Valor IR: R$ ${formatarNumero(ValorIR)}</p>
-    <p class="fgts-valor">Valor FGTS: R$ ${formatarNumero(ValorFGTS)} <span class="tooltip">? <span class="tooltiptext">FGTS pago pela Empresa.</span></span></p>
-    <p>Valor Líquido: R$ ${formatarNumero(valorLiquido)}</p>
+    <p class="${categoria === 'aprendiz' ? 'inss-aprendiz' : ''}">
+      <span>Valor INSS:</span> 
+      <span>R$ ${formatarNumero(ValorINSS)}${categoria === 'aprendiz' ? ' <span class="tooltip">? <span class="tooltiptext">Pago pela empresa, sem desconto no salário.</span></span>' : ''}</span>
+    </p>
+    <p>
+      <span>Valor IR:</span>
+      <span>R$ ${formatarNumero(ValorIR)}</span>
+    </p>
+    <p class="fgts-valor">
+      <span>Valor FGTS:</span>
+      <span>R$ ${formatarNumero(ValorFGTS)} <span class="tooltip">? <span class="tooltiptext">FGTS pago pela Empresa.</span></span></span>
+    </p>
+    <p>
+      <span>Valor Líquido:</span>
+      <span>R$ ${formatarNumero(valorLiquido)}</span>
+    </p>
   `;
   
   // Configurar botão de impressão
@@ -93,6 +204,10 @@ function calcularDesconto() {
   imprimirBtn.dataset.liquido = valorLiquido;
   imprimirBtn.dataset.salario = ValorSalario;
   imprimirBtn.dataset.categoria = categoria;
+  imprimirBtn.dataset.dependentes = dependentes;
+  
+  // Efeito de scroll suave até o resultado
+  resultadoFinal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // Função para formatar números como moeda
@@ -104,6 +219,7 @@ function formatarNumero(numero) {
 function imprimirRelatorio() {
   // Recuperar dados do botão
   let ValorSalario = parseFloat(document.getElementById('imprimirBtn').dataset.salario);
+  let dependentes = parseInt(document.getElementById('imprimirBtn').dataset.dependentes);
   let categoria = document.getElementById('imprimirBtn').dataset.categoria;
   let ValorINSS = parseFloat(document.getElementById('imprimirBtn').dataset.inss);
   let ValorIR = parseFloat(document.getElementById('imprimirBtn').dataset.ir);
@@ -117,121 +233,46 @@ function imprimirRelatorio() {
     aprendiz: "Jovem Aprendiz"
   } [categoria];
   
-  // HTML do relatório
-  let relatorioHTML = `
+  // HTML do relatório com visual moderno
+  const relatorioHTML = `
     <html>
-    <head>
-      <title>Relatório de Descontos Salariais - Contabilidade Pintos LTDA</title>
-      <style>
-        body {
-          font-family: 'Inter', sans-serif;
-          margin: 20px;
-          line-height: 1.4;
-          color: #333;
-        }
-        .header {
-          text-align: center;
-          margin-bottom: 30px;
-          border-bottom: 2px solid #ffd700;
-          padding-bottom: 10px;
-        }
-        .logo {
-          width: 150px;
-          height: auto;
-          margin-bottom: 10px;
-        }
-        .company-info {
-          font-size: 12px;
-          color: #666;
-        }
-        .title {
-          font-size: 18px;
-          font-weight: 700;
-          color: #ff6f61;
-          margin: 10px 0;
-        }
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 20px 0;
-        }
-        th, td {
-          padding: 10px;
-          text-align: left;
-          border-bottom: 1px solid #ddd;
-        }
-        th {
-          background: linear-gradient(90deg, #ff6f61, #ffb347);
-          color: #fff;
-          font-weight: 600;
-        }
-        .total {
-          font-weight: 700;
-          background-color: #f9f9f9;
-          color: #4b5eaa;
-        }
-        .footer {
-          text-align: center;
-          font-size: 10px;
-          color: #666;
-          margin-top: 30px;
-          border-top: 1px solid #ddd;
-          padding-top: 10px;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="header">
-        <img src="https://pintos.com.br/media/logo/stores/1/lojas_pintos.png" class="logo" alt="Contabilidade - Pintos LTDA">
-        <div class="company-info">
-          Pintos LTDA | CNPJ: 06.837.645/0001-60<br>
-          Rua Alvaro Mendes, 1237 - Centro, Teresina - PI | (86) 2107-4023
+      <head>
+        <title>Relatório de Descontos Salariais</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+          .container { max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+          h1 { color: #0ea5e9; text-align: center; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+          th { background-color: #f4f4f4; }
+          .total { font-weight: bold; color: #0ea5e9; }
+          .footer { text-align: center; margin-top: 20px; font-size: 0.9em; color: #777; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <h1>Relatório de Descontos Salariais</h1>
+          <table>
+            <tr><th>Item</th><th>Valor</th></tr>
+            <tr><td>Salário Bruto</td><td>R$ ${formatarNumero(ValorSalario)}</td></tr>
+            <tr><td>Número de Dependentes</td><td>${dependentes}</td></tr>
+            <tr><td>Categoria</td><td>${categoriaNome}</td></tr>
+            <tr><td>INSS${categoria === 'aprendiz' ? ' (Pago pela empresa)' : ''}</td><td>R$ ${formatarNumero(ValorINSS)}</td></tr>
+            <tr><td>Imposto de Renda</td><td>R$ ${formatarNumero(ValorIR)}</td></tr>
+            <tr><td>FGTS (Pago pela empresa)</td><td>R$ ${formatarNumero(ValorFGTS)}</td></tr>
+            <tr class="total"><td>Salário Líquido</td><td>R$ ${formatarNumero(valorLiquido)}</td></tr>
+          </table>
+          <div class="footer">
+            © 2025 Contabilidade Pintos LTDA. Todos os direitos reservados.
+          </div>
         </div>
-        <div class="title">Relatório de Descontos Salariais</div>
-      </div>
-      
-      <table>
-        <tr>
-          <th>Descrição</th>
-          <th>Valor</th>
-        </tr>
-        <tr>
-          <td>Salário Bruto</td>
-          <td>R$ ${formatarNumero(ValorSalario)}</td>
-        </tr>
-        <tr>
-          <td>Categoria do Trabalhador</td>
-          <td>${categoriaNome}</td>
-        </tr>
-        <tr>
-          <td>Desconto INSS${categoria === 'aprendiz' ? ' (pago pela empresa sem descontar do salário)' : ''}</td>
-          <td>R$ ${formatarNumero(ValorINSS)}</td>
-        </tr>
-        <tr>
-          <td>Imposto de Renda (IR)</td>
-          <td>R$ ${formatarNumero(ValorIR)}</td>
-        </tr>
-        <tr>
-          <td>FGTS (pago pela empresa)</td>
-          <td>R$ ${formatarNumero(ValorFGTS)}</td>
-        </tr>
-        <tr class="total">
-          <td>Valor Líquido</td>
-          <td>R$ ${formatarNumero(valorLiquido)}</td>
-        </tr>
-      </table>
-
-      <div class="footer">
-        Documento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}<br>
-        Contabilidade Pintos LTDA - Todos os direitos reservados
-      </div>
-    </body>
+      </body>
     </html>
   `;
   
-  // Abrir e imprimir o relatório
-  let relatorioWindow = window.open('', 'Relatório de Descontos Salariais', 'width=600,height=400');
-  relatorioWindow.document.write(relatorioHTML);
-  relatorioWindow.document.close();
-  relatorioWindow.print();
+  // Abrir nova janela para impressão
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(relatorioHTML);
+  printWindow.document.close();
+  printWindow.print();
 }

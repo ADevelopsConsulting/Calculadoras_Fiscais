@@ -5,28 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de DIFAL | Contabilidade Pintos LTDA</title>
 
-  <!-- Google Fonts para 'Inter' -->
+  <!-- Google Fonts para 'Poppins' -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Script Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Calculadora_DIFAL.css">
 </head>
 <body>
+  <div id="particles-js"></div>
+  
   <header>
     <div class="header-content">
       <h1>
         <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#e0e0ff" stroke-width="2"/>
-          <path d="M2 17L12 22L22 17" stroke="#e0e0ff" stroke-width="2"/>
-          <path d="M2 12L12 17L22 12" stroke="#e0e0ff" stroke-width="2"/>
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
         </svg>
         Calculadora DIFAL
       </h1>
       <button class="menu-button" onclick="window.location.href='Calculadoras.html'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 12H21M3 6H21M3 18H21" stroke="#fff" stroke-width="2"/>
+          <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Voltar ao Início
       </button>
@@ -35,71 +43,159 @@
 
   <main>
     <div class="container">
-      <div class="form-header">
-        <h2>Cálculo Profissional de DIFAL</h2>
-        <p>Informe os valores para um cálculo preciso e instantâneo</p>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="calculator">Calculadora</button>
+        <button class="tab-btn" data-tab="info">Informações</button>
       </div>
-      <form id="calculatorForm" class="modern-form">
-        <div class="input-group">
-          <label for="nota">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
-            </svg>
-            Valor da Nota (R$)
-          </label>
-          <input type="text" id="nota" name="nota" placeholder="Ex: 1500,00" required>
+      
+      <div class="tab-content active" id="calculator-tab">
+        <div class="form-header">
+          <h2>Cálculo Profissional de DIFAL</h2>
+          <p>Informe os valores para um cálculo preciso e instantâneo</p>
         </div>
-        <div class="input-group">
-          <label for="aliquotaInterna">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
-            </svg>
-            Alíquota Interna (%)
-          </label>
-          <input type="text" id="aliquotaInterna" name="aliquotaInterna" placeholder="Ex: 22,50" required>
+        
+        <form id="calculatorForm" class="modern-form">
+          <div class="input-group">
+            <label for="nota">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2h12v4H6V2zm0 6h12v4H6V8zm0 6h12v4H6v-4zm0 6h12v2H6v-2z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Valor da Nota (R$)
+            </label>
+            <div class="input-wrapper">
+              <span class="currency-symbol">R$</span>
+              <input type="text" id="nota" name="nota" placeholder="0,00" required>
+              <span class="input-hint">Valor total da nota fiscal</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="aliquotaInterna">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Alíquota Interna (%)
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="aliquotaInterna" name="aliquotaInterna" placeholder="0,00" required>
+              <span class="input-suffix">%</span>
+              <span class="input-hint">Alíquota do estado de destino</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="aliquotaInterestadual">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Alíquota Interestadual (%)
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="aliquotaInterestadual" name="aliquotaInterestadual" placeholder="0,00" required>
+              <span class="input-suffix">%</span>
+              <span class="input-hint">Alíquota entre estados (4%, 7% ou 12%)</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="frete">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Valor do Frete (R$)
+            </label>
+            <div class="input-wrapper">
+              <span class="currency-symbol">R$</span>
+              <input type="text" id="frete" name="frete" placeholder="0,00" required>
+              <span class="input-hint">Valor do frete na operação</span>
+            </div>
+          </div>
+          
+          <div class="buttons-group">
+            <button type="button" id="calcularBtn" class="primary-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Calcular DIFAL
+            </button>
+            <button type="button" id="limparBtn" class="secondary-btn outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m-6 5v6m4-6v6M8 6l-5 5 5 5m8-10l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Limpar
+            </button>
+          </div>
+        </form>
+        
+        <div id="resultado" class="result-box hidden">
+          <div class="result-header">
+            <h3>Resultado do Cálculo</h3>
+            <span class="result-date">Data: <span id="currentDate"></span></span>
+          </div>
+          <div class="result-content">
+            <div class="result-row">
+              <div class="result-label">Base de Cálculo:</div>
+              <div class="result-value" id="baseCalculo">R$ 0,00</div>
+            </div>
+            <div class="result-row">
+              <div class="result-label">DIFAL a Recolher:</div>
+              <div class="result-value highlight" id="valorDifal">R$ 0,00</div>
+            </div>
+          </div>
+          <div class="result-actions">
+            <button id="imprimirBtn" class="secondary-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Imprimir Relatório
+            </button>
+            <button id="compartilharBtn" class="secondary-btn outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 8a3 3 0 100-6 3 3 0 000 6zm0 4a3 3 0 100 6 3 3 0 000-6zm0 10a3 3 0 100-6 3 3 0 000 6zM6 5l6 3m0 4l-6 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Compartilhar
+            </button>
+          </div>
         </div>
-        <div class="input-group">
-          <label for="aliquotaInterestadual">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
-            </svg>
-            Alíquota Interestadual (%)
-          </label>
-          <input type="text" id="aliquotaInterestadual" name="aliquotaInterestadual" placeholder="Ex: 12" required>
+      </div>
+      
+      <div class="tab-content" id="info-tab">
+        <div class="info-content">
+          <h3>Sobre o DIFAL</h3>
+          <p>O Diferencial de Alíquota do ICMS (DIFAL) é o valor devido nas operações interestaduais com consumidor final não contribuinte do ICMS.</p>
+          
+          <h3>Como é calculado?</h3>
+          <p>O DIFAL é calculado pela diferença entre a alíquota interna do estado de destino e a alíquota interestadual.</p>
+          
+          <div class="formula-box">
+            <h4>Fórmula:</h4>
+            <p class="formula">DIFAL = [(Base de Cálculo × Alíquota Interna) - (Base de Cálculo × Alíquota Interestadual)]</p>
+          </div>
+          
+          <h3>Alíquotas Interestaduais</h3>
+          <ul>
+            <li><strong>4%</strong>: Operações com bens e mercadorias importados</li>
+            <li><strong>7%</strong>: Operações que destinem mercadorias para estados das regiões Norte, Nordeste, Centro-Oeste e Espírito Santo</li>
+            <li><strong>12%</strong>: Operações que destinem mercadorias para estados das regiões Sul e Sudeste, exceto Espírito Santo</li>
+          </ul>
         </div>
-        <div class="input-group">
-          <label for="frete">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2V22M2 12H22" stroke="#ff6f61" stroke-width="2"/>
-            </svg>
-            Valor do Frete (R$)
-          </label>
-          <input type="text" id="frete" name="frete" placeholder="Ex: 50,00" required>
-        </div>
-        <button type="button" onclick="calcularICMS()">
-          <span>Calcular Agora</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 18L15 12L9 6" stroke="#fff" stroke-width="2"/>
-          </svg>
-        </button>
-      </form>
-      <div id="resultado" class="result-box"></div>
-      <button id="imprimirBtn" class="secondary-btn" onclick="imprimirRelatorio()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 9V2H18V9M6 14H18M6 18H18V22H6V18Z" stroke="#fff" stroke-width="2"/>
-        </svg>
-        Imprimir Relatório
-      </button>
+      </div>
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
       <p>© 2025 Contabilidade Pintos LTDA. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#" title="Política de Privacidade">Privacidade</a>
+        <a href="#" title="Termos de Uso">Termos</a>
+        <a href="#" title="Fale Conosco">Contato</a>
+      </div>
     </div>
   </footer>
 
   <!-- Script -->
   <script src="Calculadora_DIFAL.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9324fb4aa949bfcf',t:'MTc0NDk4NzkwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
