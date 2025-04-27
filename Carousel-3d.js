@@ -13,7 +13,7 @@ const calculadoras = [
   { 
     id: 'btnTV',
     title: "Calculadora ST (TVI)", 
-    href: "Calculadora_TVI.html" 
+    href: "calculadora_TVI.html" 
   },
   { 
     id: 'btnPF',
