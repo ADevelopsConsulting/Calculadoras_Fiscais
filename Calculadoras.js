@@ -101,7 +101,7 @@ document.getElementById('btnST').addEventListener('click', function() {
 });
 
 document.getElementById('btnTV').addEventListener('click', function() {
-  window.location.href = 'Calculadora_TVI.html';
+  window.location.href = 'calculadora_TVI.html';
 });
 
 document.querySelector('.menu-button').addEventListener('click', function() {
