@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadoras Fiscais | Contabilidade Pintos</title>
+
+  <!-- Google Fonts para 'Poppins' -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Script Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- Arquivo de estilos -->
+  <link rel="stylesheet" href="Calculadoras.css">
+  <link rel="stylesheet" href="Carousel-3d.css">
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  
+  <header>
+    <div class="header-content">
+      <h1>
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Calculadoras Fiscais
+      </h1>
+      <button class="menu-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar ao Início
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="form-header">
+        <h2>Ferramentas de Cálculo</h2>
+        <p>Escolha uma calculadora para realizar seus cálculos fiscais</p>
+      </div>
+      
+      <!-- Container do Carrossel 3D -->
+      <div class="carousel-3d-container">
+        <div class="carousel-3d-stage">
+          <!-- Os cards serão inseridos aqui via JavaScript -->
+        </div>
+        
+        <!-- Controles do Carrossel -->
+        <div class="carousel-controls">
+          <button id="prev-btn" class="control-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="carousel-indicators">
+            <!-- Indicadores serão adicionados via JavaScript -->
+          </div>
+          
+          <button id="next-btn" class="control-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Contabilidade Pintos LTDA. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="Calculadoras.js"></script>
+  <script src="Carousel-3d.js"></script>
+</body>
+</html>
