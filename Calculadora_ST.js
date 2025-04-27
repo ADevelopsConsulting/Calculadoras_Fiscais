@@ -121,16 +121,16 @@ function calcularICMS_ST_valor(baseNota, aliquota) {
   let baseIPI = baseNota + (baseNota * ipi);
   
   if (aliquota <= 4 / 100) {
-    mva_aliquota = 34.15 / 100;
+    mva_aliquota = 35.90 / 100;
   } else if (aliquota <= 7 / 100) {
-    mva_aliquota = 29.96 / 100;
+    mva_aliquota = 31.65 / 100;
   } else {
-    mva_aliquota = 22.97 / 100;
+    mva_aliquota = 24.57 / 100;
   }
   
   let mva_valor = baseIPI * mva_aliquota;
   let baseST = baseIPI + mva_valor;
-  let icmsST = (baseST * 22 / 100) - icms;
+  let icmsST = (baseST * 23 / 100) - icms;
   
   return { icmsST: icmsST, baseST: baseST };
 }
